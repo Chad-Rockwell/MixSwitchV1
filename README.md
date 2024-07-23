@@ -1,50 +1,100 @@
-# Welcome to your Expo app 👋
+# MixSwitch
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+The MixSwitch App is a React Native/Expo application that allows users to load and play two audio mixes, switch between them, and take notes while listening. Users can save their notes, clear all notes with a confirmation prompt, and view their saved notes.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Load two audio mixes from the device.
+- Play and stop audio mixes.
+- Switch between Mix 1 and Mix 2.
+- Display the progress of the currently playing track.
+- Has a rotating logo based on the progress of the song.
+- There is a notes tab where you can log any mix notes.
+- User can clear all notes with a confirmation prompt.
 
-   ```bash
-   npm install
-   ```
+## Screenshots
 
-2. Start the app
+(Include screenshots of your app here)
 
-   ```bash
-    npx expo start
-   ```
+## Usage
 
-In the output, you'll find options to open the app in a
+1. **Load Audio Mixes:**
+    - Click on "Load Mix A" or "Load Mix B" to select an audio file from your device.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+2. **Play and Stop Mixes:**
+    - Use the play and stop buttons to control the audio playback.
+    - Switch between Mix 1 and Mix 2 using the respective buttons.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+3. **Take Notes:**
+    - Enter your notes in the text input field.
+    - Click "Save Note" to save your note.
+    - Click "Clear All Notes" to clear all saved notes. A confirmation prompt will appear.
 
-## Get a fresh project
+4. **View Saved Notes:**
+    - Scroll through your saved notes in the notes section.
 
-When you're ready, run:
+## Components
 
-```bash
-npm run reset-project
-```
+### HomeScreen
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- Manages audio playback and switching between Mix 1 and Mix 2.
+- Displays the progress bar, app title, logo and highlights the active(audible) mix.
+- Contains the following buttons:
+  - Load Mix A
+  - Load Mix B
+  - Play
+  - Stop
+  - Mix 1
+  - Mix 2
 
-## Learn more
+### Logo
 
-To learn more about developing your project with Expo, look at the following resources:
+- Displays the rotating logo.
+- Logo rotates when song is being played.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Notes
 
-## Join the community
+- Allows users to take and save notes related to the mixes.
+- Displays saved notes and provides an option to clear all notes with a confirmation prompt.
 
-Join our community of developers creating universal apps.
+## Styling
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The app is styled to be visually appealing with a dark theme. The primary colors used are blue, white, and grey.
+
+## Dependencies
+
+- React Native
+- Expo
+- AsyncStorage
+- Expo File System
+- Expo Document Picker
+- Expo AV (Audio/Video)
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any changes.
+
+## License
+
+MIT License
+
+Copyright (c) 2024 Chad Rockwell
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
