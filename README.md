@@ -13,8 +13,9 @@ The MixSwitch App is a React Native/Expo application that allows users to load a
 - User can clear all notes with a confirmation prompt.
 
 ## Screenshots
+![IOS HomeScreen/Playback](screenshots/ios-screenshot-playback.jpg)
+![IOS HomeScreen/Playback](screenshots/ios-screenshot-mixnotes.jpg)
 
-(Include screenshots of your app here)
 
 ## Usage
 
