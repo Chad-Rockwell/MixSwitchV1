@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert, Platform } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFonts } from "expo-font";
 
@@ -67,7 +67,7 @@ export default function Notes() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Mix Notes</Text>
+      {loaded && <Text style={styles.title}>Mix Notes</Text>}
       <TextInput
         style={styles.input}
         placeholder="Write your note here..."

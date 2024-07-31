@@ -57,7 +57,7 @@ export default function HomeScreen() {
     return null;
   };
 
-  const updatePlaybackStatus = (status: AVPlaybackStatus) => {
+  const updatePlaybackStatus = async (status: AVPlaybackStatus) => {
     if (status.isLoaded) {
       setPosition(status.positionMillis);
       if (Number(status.durationMillis) > duration) {
@@ -85,7 +85,7 @@ export default function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <View style={{paddingTop: 70}}>
-        <Text style={styles.title}>MixSwitch</Text>
+        {loaded && <Text style={styles.title}>MixSwitch</Text>}
       </View>
       <View style={{ paddingTop: 10}}>
         <Logo isPlaying={isPlaying}></Logo>
@@ -98,7 +98,7 @@ export default function HomeScreen() {
             isPlaying && trackSelect && styles.buttonActive,
           ]}
           onPress={async () => {
-            pickFile(1);
+            await Promise.all([sound1?.stopAsync(), sound2?.stopAsync(), setIsPlaying(false), pickFile(1)]);
           }}
         >
           <Text style={styles.buttonText}>{audio1}</Text>
@@ -109,7 +109,7 @@ export default function HomeScreen() {
             isPlaying && !trackSelect && styles.buttonActive,
           ]}
           onPress={async () => {
-            pickFile(2);
+            await Promise.all([sound1?.stopAsync(), sound2?.stopAsync(), setIsPlaying(false), pickFile(2)]);
           }}
         >
           <Text style={styles.buttonText}>{audio2}</Text>
@@ -157,8 +157,7 @@ export default function HomeScreen() {
           style={styles.playbackButton}
           onPress={async () => {
             await Promise.all([
-              sound1?.setIsMutedAsync(false),
-              sound2?.setIsMutedAsync(true),
+              trackSelect ? [sound1?.setIsMutedAsync(false), sound2?.setIsMutedAsync(true)] : [sound1?.setIsMutedAsync(true), sound2?.setIsMutedAsync(false)],
               sound1?.playAsync(),
               sound2?.playAsync(),
             ]);
@@ -183,7 +182,7 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   title: {
-    color: "white",
+    color: Platform.OS === "ios" ? "white" : "black",
     fontFamily: "Rubik Mono One",
     fontSize: 35,
     textAlign: "center",
@@ -209,7 +208,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "white",
-    fontFamily: "Avenir-Book",
+    fontFamily: Platform.OS === "ios" ? "Avenir-Book" : "sans-serif",
     fontSize: 20,
   },
   buttonActive: {
