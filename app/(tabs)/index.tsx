@@ -57,7 +57,7 @@ export default function HomeScreen() {
     return null;
   };
 
-  const updatePlaybackStatus = async (status: AVPlaybackStatus) => {
+  const updatePlaybackStatus = (status: AVPlaybackStatus) => {
     if (status.isLoaded) {
       setPosition(status.positionMillis);
       if (Number(status.durationMillis) > duration) {
